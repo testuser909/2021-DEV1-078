@@ -27,4 +27,36 @@ public class GameManagerTest {
 			gameManager.playGame(2, 4, 'O');
 		});
 	}
+	
+	public void whenTheBoxIsOccupied_thenThrowRuntimeException() {
+		gameManager.playGame(1, 3, 'X');
+		Assertions.assertThrows(RuntimeException.class, () -> {
+			gameManager.playGame(1, 3, 'O');
+		});
+	}	
+	@Test
+	public void givenPreviousPlayerIsAlsoTheNewPlayer_thenThrowARuntimeException() {
+		char lastPlayer = 'X';
+		char newPlayer = 'X';
+		Assertions.assertThrows(RuntimeException.class, () -> {
+			gameManager.nextPlayer(lastPlayer, newPlayer);
+		});
+	}
+	@Test
+	public void givenLastTurnWas_X_thenIfNextTurnIs_O_DoesNotThrowARuntimeException() {
+		char lastPlayer = 'X';
+		char newPlayer = 'O';
+		Assertions.assertDoesNotThrow( () -> {
+			gameManager.nextPlayer(lastPlayer, newPlayer);
+		});
+	}
+	@Test
+	public void givenFirstTurn_thenThrowRuntimeExceptionIfXIsNotTheNextPlayer() {
+		char lastPlayer = '\0';
+		char newPlayer = 'O';
+		Assertions.assertThrows(RuntimeException.class, () -> {
+			gameManager.nextPlayer(lastPlayer, newPlayer);
+		});
+	}	
 }
+
