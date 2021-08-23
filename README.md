@@ -12,6 +12,7 @@ Project is created with:
 To setup this project:  
 clone the project from this [repository](https://github.com/testuser909/2021-DEV1-TicTacToe)  
 git clone https://github.com/testuser909/2021-DEV1-TicTacToe.git  
+cd 2021-DEV1-TicTacToe/
 Build the project by running:    
 mvn clean install  
 
