@@ -4,7 +4,7 @@ public class CheckWinnerService {
 
 	private static final int SIZE = 3;
 
-	public boolean isAGameWin(int rowPosition, int columnPosition, char previousPlayer, Character[][] gameBoard) {
+	public boolean checkForAGameWin(int rowPosition, int columnPosition, char previousPlayer, Character[][] gameBoard) {
 		int playerTotal = previousPlayer * SIZE;
 		char horizontalWin, verticalWin, rightToLeftDiagonalWin, leftToRightDiagonalWin;
 

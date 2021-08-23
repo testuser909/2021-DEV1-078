@@ -1,7 +1,10 @@
 package com.gametictactoe.tictactoe.service;
 
 import org.springframework.stereotype.Service;
-
+/**
+ * Class manages the state of the game board
+ * 
+ * */
 @Service
 public class GameManagerService {
 	private Character[][] gameBoard = { { '\0', '\0', '\0' }, { '\0', '\0', '\0' }, { '\0', '\0', '\0' } };
@@ -22,7 +25,7 @@ public class GameManagerService {
 		
 		previousPlayer = nextPlayer;
 
-		if (checkWinnerService.isAGameWin(rowPosition, columnPosition, previousPlayer, gameBoard)) {
+		if (checkWinnerService.checkForAGameWin(rowPosition, columnPosition, previousPlayer, gameBoard)) {
 			return "Player " + previousPlayer + " Wins";
 			
 		} else if (checkWinnerService.gameIsADraw(gameBoard)) {
